@@ -6,7 +6,6 @@ function PlantItem({ cover, name, price }) {
 			<span className='lmj-plant-item-price'>{price} ml/jour</span>
 			<img className='lmj-plant-item-cover' src={cover} alt={`${name} cover`} />
 			{name}
-      <input placeholder="Modifier le volume d'eau"></input>
 		</li>
 	)
 }
