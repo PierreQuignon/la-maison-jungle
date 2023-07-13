@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/Cart.css";
+import { BiSolidLeaf } from "react-icons/bi";
 
-function Cart({ cart, updateCart }) {
+function Cart({ cart }) {
   const [isOpen, setIsOpen] = useState(true);
-  const total = cart.reduce(
-    (acc, plantType) => acc + plantType.amount * plantType.price,
-    0
-  );
-  useEffect(() => {
-    document.title = `LMJ: ${total}€ d'achats`;
-  }, [total]);
 
   return isOpen ? (
     <div className="lmj-cart">
@@ -17,13 +11,22 @@ function Cart({ cart, updateCart }) {
         className="lmj-cart-toggle-button"
         onClick={() => setIsOpen(false)}
       >
-        Fermer
+      <u>Fermer</u>
       </button>
       <div>
-        <p>Nouvelle plante</p>
-        <input placeholder="Nom de la plante"></input>
-        <input placeholder="Quantité d'eau par jour (ml)"></input>
-        <button>Ajouter</button>
+        <div className="new-plant-title-icon">
+          <p className="new-plant-title">Nouvelle plante</p>
+          <BiSolidLeaf />
+        </div>
+        <input
+          className="input-name-plant"
+          placeholder="Nom de la plante"
+        ></input>
+        <input
+          className="input-quantity-water"
+          placeholder="Quantité d'eau par jour (ml)"
+        ></input>
+        <button className="button-new-plant">Ajouter</button>
       </div>
     </div>
   ) : (

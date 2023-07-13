@@ -17,12 +17,12 @@
 	background: none;
 	outline: none;
 	border: none;
-	font-weight: 600;
 	cursor: pointer;
 	align-self: self-start;
 	padding: 0;
 	color: white;
 	align-self: flex-end;
+  font-size: 17px;
 }
 
 .lmj-cart-closed {
@@ -32,4 +32,43 @@
 
 .lmj-cart-closed > button {
 	color: black;
+}
+
+.input-name-plant {
+  width:180px;
+  height:20px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border-style: none;
+  padding:4px;
+  color: rgb(99, 99, 99)
+}
+
+.input-quantity-water {
+  width: 180px;
+  height:20px;
+  margin-bottom: 14px;
+  border-radius: 4px;
+  border-style: none;
+  padding:4px;
+  color: rgb(99, 99, 99)
+}
+
+.button-new-plant {
+  padding: 5px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: white;
+	color: #31b572;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.new-plant-title-icon {
+  display: flex;
+  align-items: center;
+}
+
+.new-plant-title {
+  margin-right: 5px;
 }
