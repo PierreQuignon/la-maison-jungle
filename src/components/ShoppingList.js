@@ -1,14 +1,20 @@
-import { plantList } from "../datas/plantList";
 import PlantItem from "./PlantItem";
 import "../styles/ShoppingList.css";
 import { useState, useEffect } from "react";
 
 function ShoppingList() {
-
   const [timeWaterig, setTimeWatering] = useState(0);
+  const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    
+    fetch("http://localhost:5000/plants")
+      .then((res) => res.json())
+      .then((resJson) => {
+        setPlants(resJson);
+      })
+      .catch((error) => {
+        console.log('error call api', error);
+      });
   }, []);
 
   return (
@@ -23,7 +29,9 @@ function ShoppingList() {
           -
         </button>
         <div className="input-time-watering">
-          <div><u>Horaire d'arrosage</u></div>
+          <div>
+            Horaire d'arrosage programmé
+          </div>
           {timeWaterig} h
         </div>
         <button
@@ -36,16 +44,13 @@ function ShoppingList() {
         </button>
       </div>
       <ul className="lmj-plant-list">
-        {plantList.map(({ id, cover, name, water, light, price }) => (
+        {plants.map(({ id, name, water, cover }) => (
           <div key={id}>
             <PlantItem
-              cover={cover}
               name={name}
               water={water}
-              light={light}
-              price={price}
+              cover={cover}
             />
-            <button>Arroser</button>
           </div>
         ))}
       </ul>

@@ -5,6 +5,7 @@ import Cart from './Cart'
 import Footer from './Footer'
 import ShoppingList from './ShoppingList'
 import '../styles/Layout.css'
+import '../styles/index.css'
 
 function App() {
 	const savedCart = localStorage.getItem('cart')
