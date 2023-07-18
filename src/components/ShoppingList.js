@@ -11,11 +11,27 @@ function ShoppingList() {
       .then((res) => res.json())
       .then((resJson) => {
         setPlants(resJson);
-      })
-      .catch((error) => {
-        console.log('error call api', error);
       });
   }, []);
+
+  const deletePlant = async (id) => {
+    await fetch(`http://localhost:5000/plants/${id}`, {
+      method: "DELETE",
+    });
+    setPlants((prevPlants) => prevPlants.filter((plant) => plant.plant_id !== id));
+  };
+
+  // const newPlant = async (plantData) => {
+  //     const response = await fetch("http://localhost:5000/plants", {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(plantData),
+  //     });
+  //       const newPlant = await response.json();
+  //       setPlants((prevPlants) => [...prevPlants, newPlant]);
+  // };
 
   return (
     <div className="lmj-shopping-list">
@@ -29,9 +45,7 @@ function ShoppingList() {
           -
         </button>
         <div className="input-time-watering">
-          <div>
-            Horaire d'arrosage programmé
-          </div>
+          <div>Horaire d'arrosage programmé</div>
           {timeWaterig} h
         </div>
         <button
@@ -44,13 +58,9 @@ function ShoppingList() {
         </button>
       </div>
       <ul className="lmj-plant-list">
-        {plants.map(({ id, name, water, cover }) => (
-          <div key={id}>
-            <PlantItem
-              name={name}
-              water={water}
-              cover={cover}
-            />
+        {plants.map((plant) => (
+          <div key={plant.plant_id}>
+            <PlantItem plant={plant} deletePlant={deletePlant} />
           </div>
         ))}
       </ul>

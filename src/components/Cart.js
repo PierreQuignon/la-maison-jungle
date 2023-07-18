@@ -1,18 +1,10 @@
-import { useState } from "react";
 import "../styles/Cart.css";
 import { BiSolidLeaf } from "react-icons/bi";
 
-function Cart({ cart }) {
-  const [isOpen, setIsOpen] = useState(true);
-
-  return isOpen ? (
+function Cart() {
+  
+  return (
     <div className="lmj-cart">
-      <button
-        className="lmj-cart-toggle-button"
-        onClick={() => setIsOpen(false)}
-      >
-      <u>Fermer</u>
-      </button>
       <div>
         <div className="new-plant-title-icon">
           <p className="new-plant-title">Nouvelle plante</p>
@@ -26,17 +18,11 @@ function Cart({ cart }) {
           className="input-quantity-water"
           placeholder="Quantité d'eau par jour (ml)"
         ></input>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" id="imageUpload" name="imageUpload"/>
+        </form>
         <button className="button-new-plant">Ajouter</button>
       </div>
-    </div>
-  ) : (
-    <div className="lmj-cart-closed">
-      <button
-        className="lmj-cart-toggle-button"
-        onClick={() => setIsOpen(true)}
-      >
-        Ajouter une plante
-      </button>
     </div>
   );
 }

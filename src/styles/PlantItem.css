@@ -44,6 +44,22 @@
   cursor: pointer;
 }
 
+.button-delete-plant {
+  position: absolute;
+	border-radius: 0 20px 20px 20px;
+	background-color: #59f8a8;
+  border-style: none;
+	color: rgb(255, 255, 255);
+	padding: 13px;
+	right: 0;
+	bottom: 0;
+  font-size: 18px;
+}
+
+.button-delete-plant:hover {
+  color: rgb(251, 5, 91);
+}
+
 .lmj-plant-name {
   font-size: 22px;
   color:#31b472;

@@ -13,27 +13,6 @@
 	cursor: pointer;
 }
 
-.lmj-cart-toggle-button {
-	background: none;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	align-self: self-start;
-	padding: 0;
-	color: white;
-	align-self: flex-end;
-  font-size: 17px;
-}
-
-.lmj-cart-closed {
-	padding: 32px;
-	width: 300px;
-}
-
-.lmj-cart-closed > button {
-	color: black;
-}
-
 .input-name-plant {
   width:180px;
   height:20px;
