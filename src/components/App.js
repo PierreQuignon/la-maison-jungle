@@ -13,6 +13,14 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cart))
 	}, [cart])
+  const [plants, setPlants] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/plants")
+      .then((res) => res.json())
+      .then((resJson) => {
+        setPlants(resJson);
+      });
+  }, []);
 
 	return (
 		<div>
@@ -21,8 +29,8 @@ function App() {
 				<h1 className='lmj-title'>La maison jungle</h1>
 			</Banner>
 			<div className='lmj-layout-inner'>
-				<Cart cart={cart} updateCart={updateCart} />
-				<ShoppingList cart={cart} updateCart={updateCart} />
+				<Cart cart={cart} updateCart={updateCart} setPlants={setPlants}/>
+				<ShoppingList cart={cart} updateCart={updateCart} plants={plants} setPlants={setPlants}/>
 			</div>
 			<Footer />
 		</div>
