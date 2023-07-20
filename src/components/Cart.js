@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../styles/Cart.css";
 import { BiSolidLeaf } from "react-icons/bi";
-import axios from "axios";
 
 function Cart({ setPlants }) {
   const [namePlant, setNamePlant] = useState("");
@@ -39,37 +38,27 @@ function Cart({ setPlants }) {
   function loadObject() {
     setNewObject(objectNewPlant);
     newPlant(objectNewPlant);
-  };
+  }
 
   const preset_key = "x3kqcs78";
   const cloud_name = "dhc7v7ktf";
-  const [image, setImage] = useState();
 
   function handleFile(e) {
     const file = e.target.files[0];
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', preset_key);
-    axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
-  };
+    formData.append("file", file);
+    formData.append("upload_preset", preset_key);
+    formData.append("public_id", `${namePlantLowercase}`);
+    formData.append("folder", "maison-jungle");
 
-  // function handleFile(e) {
-  //   const file = e.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-  //   formData.append('upload_preset', preset_key);
-
-  //   fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
-  //     method: 'POST',
-  //     body: formData,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // };
-
+    fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => data.secure_url)
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div className="lmj-cart">
@@ -95,7 +84,7 @@ function Cart({ setPlants }) {
           }}
         ></input>
         <div>
-          <input type="file" name="imageUpload" onChange={handleFile}/>
+          <input type="file" name="imageUpload" onChange={handleFile} />
         </div>
         <button className="button-new-plant" onClick={() => loadObject()}>
           Ajouter
