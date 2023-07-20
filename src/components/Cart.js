@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Cart.css";
 import { BiSolidLeaf } from "react-icons/bi";
+import axios from "axios";
 
 function Cart({ setPlants }) {
   const [namePlant, setNamePlant] = useState("");
@@ -15,7 +16,6 @@ function Cart({ setPlants }) {
   const coverTitle = `maison-jungle/${namePlantLowercase}`;
 
   const [newObject, setNewObject] = useState({});
-  console.log(newObject);
 
   const objectNewPlant = {
     name: namePlant,
@@ -39,7 +39,37 @@ function Cart({ setPlants }) {
   function loadObject() {
     setNewObject(objectNewPlant);
     newPlant(objectNewPlant);
-  }
+  };
+
+  const preset_key = "x3kqcs78";
+  const cloud_name = "dhc7v7ktf";
+  const [image, setImage] = useState();
+
+  function handleFile(e) {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', preset_key);
+    axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+  };
+
+  // function handleFile(e) {
+  //   const file = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+  //   formData.append('upload_preset', preset_key);
+
+  //   fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+  //     method: 'POST',
+  //     body: formData,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data))
+  //     .catch((err) => console.log(err));
+  // };
+
 
   return (
     <div className="lmj-cart">
@@ -64,9 +94,9 @@ function Cart({ setPlants }) {
             setWaterQuantity(e.target.value);
           }}
         ></input>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-          <input type="file" id="imageUpload" name="imageUpload"/>
-        </form>
+        <div>
+          <input type="file" name="imageUpload" onChange={handleFile}/>
+        </div>
         <button className="button-new-plant" onClick={() => loadObject()}>
           Ajouter
         </button>
