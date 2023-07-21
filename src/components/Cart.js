@@ -38,10 +38,13 @@ function Cart({ setPlants }) {
   function loadObject() {
     setNewObject(objectNewPlant);
     newPlant(objectNewPlant);
+    handleFile(stateFile);
   }
 
   const preset_key = "x3kqcs78";
   const cloud_name = "dhc7v7ktf";
+
+  const [stateFile, getStateFile] = useState();
 
   function handleFile(e) {
     const file = e.target.files[0];
@@ -83,9 +86,8 @@ function Cart({ setPlants }) {
             setWaterQuantity(e.target.value);
           }}
         ></input>
-        <div>
-          <input type="file" name="imageUpload" onChange={handleFile} />
-        </div>
+        <input type="file" name="imageUpload" onChange={getStateFile} />
+        <br/><br/>
         <button className="button-new-plant" onClick={() => loadObject()}>
           Ajouter
         </button>

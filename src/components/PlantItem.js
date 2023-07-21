@@ -15,6 +15,11 @@ function PlantItem({ plant, deletePlant }) {
   const imagePlant = cld.image(plant.cover);
   imagePlant.resize(fill().width(350).height(350));
 
+  function adviceMessage() {
+    alert("Etes vous certain de vouloir supprimer cette plante ?")
+    deletePlant(plant.plant_id)
+  }
+
   return (
     <>
       <li className="lmj-plant-item">
@@ -22,7 +27,7 @@ function PlantItem({ plant, deletePlant }) {
         <button className="button-watering">
           <GiWateringCan />
         </button>
-        <button className="button-delete-plant" onClick={()=>deletePlant(plant.plant_id)}>
+        <button className="button-delete-plant" onClick={()=>adviceMessage()}>
           <BsTrash3 />
         </button>
         <AdvancedImage
