@@ -8,11 +8,6 @@ import '../styles/Layout.css'
 import '../styles/index.css'
 
 function App() {
-	const savedCart = localStorage.getItem('cart')
-	const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
-	useEffect(() => {
-		localStorage.setItem('cart', JSON.stringify(cart))
-	}, [cart])
   const [plants, setPlants] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/plants")
@@ -29,8 +24,8 @@ function App() {
 				<h1 className='lmj-title'>La maison jungle</h1>
 			</Banner>
 			<div className='lmj-layout-inner'>
-				<Cart cart={cart} updateCart={updateCart} setPlants={setPlants}/>
-				<ShoppingList cart={cart} updateCart={updateCart} plants={plants} setPlants={setPlants}/>
+				<Cart setPlants={setPlants}/>
+				<ShoppingList plants={plants} setPlants={setPlants}/>
 			</div>
 			<Footer />
 		</div>
