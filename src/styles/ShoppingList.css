@@ -1,8 +1,44 @@
 .lmj-shopping-list {
-	width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.container-time-watering {
+  display: flex;
+  padding-top: 37px;
+}
+
+.decrement-time-watering{
+  padding: 15px;
+  border-radius: 45px 0 0 45px;
+  background-color:#31b572;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.input-time-watering {
+  padding: 15px;
+  background-color:#31b572;
+  color: #ffffff;
+  border: none;
+  font-size: 17px;
+  text-align: center;
+}
+
+.increment-time-watering{
+  padding: 15px;
+  border-radius: 0 45px 45px 0;
+  background-color:#31b572;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 .lmj-plant-list > div {
@@ -16,39 +52,4 @@
 	justify-content: center;
   padding: 2px;
   text-align: center;
-}
-
-.container-time-watering {
-  display: flex;
-  padding-top: 37px;
-}
-
-.input-time-watering {
-  padding: 15px;
-  background-color:#31b572;
-  color: #ffffff;
-  border: none;
-  font-size: 17px;
-  text-align: center;
-}
-
-.decrement-time-watering{
-  padding: 15px;
-  border-radius: 45px 0 0 45px;
-  background-color:#31b572;
-  color: #ffffff;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bolder;
-}
-.increment-time-watering{
-  padding: 15px;
-  border-radius: 0 45px 45px 0;
-  background-color:#31b572;
-  color: #ffffff;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bolder;
 }

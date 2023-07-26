@@ -3,18 +3,16 @@ import "../styles/Cart.css";
 import { BiSolidLeaf } from "react-icons/bi";
 
 function Cart({ setPlants }) {
+
   const [namePlant, setNamePlant] = useState("");
-
-  const [waterQuantity, setWaterQuantity] = useState("");
-  const waterQuantityInteger = parseInt(waterQuantity, 10);
-
+  const namePlantLowercase = capitalizeFirstLetter(namePlant);
+  const coverTitle = `maison-jungle/${namePlantLowercase}`;
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toLowerCase() + str.slice(1);
   }
-  const namePlantLowercase = capitalizeFirstLetter(namePlant);
-  const coverTitle = `maison-jungle/${namePlantLowercase}`;
 
-  const [newObject, setNewObject] = useState({});
+  const [waterQuantity, setWaterQuantity] = useState("");
+  const waterQuantityInteger = parseInt(waterQuantity, 10);
 
   const objectNewPlant = {
     name: namePlant,
@@ -35,12 +33,6 @@ function Cart({ setPlants }) {
     setPlants((prevPlants) => [...prevPlants, newPlant]);
   };
 
-  function loadObject() {
-    setNewObject(objectNewPlant);
-    newPlant(objectNewPlant);
-    handleFile(stateFile);
-  }
-
   const preset_key = "x3kqcs78";
   const cloud_name = "dhc7v7ktf";
 
@@ -58,9 +50,14 @@ function Cart({ setPlants }) {
       method: "POST",
       body: formData,
     })
-      .then((response) => response.json())
-      .then((data) => data.secure_url)
-      .catch((err) => console.log(err));
+    .then((response) => response.json())
+    .then((data) => data.secure_url)
+    .catch((err) => console.log(err));
+  }
+
+  function loadObject() {
+    newPlant(objectNewPlant);
+    handleFile(stateFile);
   }
 
   return (

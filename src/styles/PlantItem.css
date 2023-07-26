@@ -1,41 +1,33 @@
-.lmj-plant-item-cover {
-	height: 250px;
-	width: 250px;
-	border-radius: 20px;
-	object-fit: cover;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
 .lmj-plant-item {
-	margin: 10px;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	flex-direction: column;
-	position: relative;
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .lmj-plant-quantity-watering {
-	position: absolute;
-	border-radius: 20px 20px 20px 0;
-	background-color: #31b472;
-	color: white;
-	padding: 15px;
-	right: 0;
-	top: 0;
-	font-weight: 500;
+  position: absolute;
+  border-radius: 20px 20px 20px 0;
+  background-color: #31b472;
+  color: white;
+  padding: 15px;
+  right: 0;
+  top: 0;
+  font-weight: 500;
 }
 
 .button-watering {
-	position: absolute;
-	border-radius: 20px 0 20px 20px;
+  position: absolute;
+  border-radius: 20px 0 20px 20px;
   border-style: none;
-	background-color: #0088ff;
-	color: white;
-	padding: 10px;
-	bottom: 0;
-	left: 0;
-	font-size: 25px;
+  background-color: #0088ff;
+  color: white;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  font-size: 25px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -46,18 +38,26 @@
 
 .button-delete-plant {
   position: absolute;
-	border-radius: 0 20px 20px 20px;
-	background-color: #59f8a8;
+  border-radius: 0 20px 20px 20px;
+  background-color: #59f8a8;
   border-style: none;
-	color: rgb(255, 255, 255);
-	padding: 13px;
-	right: 0;
-	bottom: 0;
+  color: rgb(255, 255, 255);
+  padding: 13px;
+  right: 0;
+  bottom: 0;
   font-size: 18px;
 }
 
 .button-delete-plant:hover {
   color: rgb(251, 5, 91);
+}
+
+.lmj-plant-item-cover {
+	height: 250px;
+	width: 250px;
+	border-radius: 20px;
+	object-fit: cover;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .lmj-plant-name {

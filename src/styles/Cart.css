@@ -1,5 +1,5 @@
 .lmj-cart {
-	color: white;
+  color: white;
 	background-color: #31b572;
 	padding: 32px;
 	display: flex;
@@ -8,9 +8,13 @@
 	width: 300px;
 }
 
-.lmj-cart-add-button {
-	margin-left: 32px;
-	cursor: pointer;
+.new-plant-title-icon {
+  display: flex;
+  align-items: center;
+}
+
+.new-plant-title {
+  margin-right: 5px;
 }
 
 .input-name-plant {
@@ -38,16 +42,7 @@
   border-radius: 5px;
   border-style: none;
   background-color: white;
-	color: #31b572;
+  color: #31b572;
   cursor: pointer;
   font-size: 15px;
-}
-
-.new-plant-title-icon {
-  display: flex;
-  align-items: center;
-}
-
-.new-plant-title {
-  margin-right: 5px;
 }

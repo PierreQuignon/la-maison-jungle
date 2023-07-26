@@ -3,6 +3,7 @@ import "../styles/ShoppingList.css";
 import { useEffect, useState } from "react";
 
 function ShoppingList({ plants, setPlants }) {
+  
   const [timeWatering, setTimeWatering] = useState(0);
 
   useEffect(() => {
